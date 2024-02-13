@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 class TodoController(
     private val todoService: TodoService
 ) {
-
+    // localhost:8080/api/v1/todos 로 swagger 없이 url로 확인 가능
     @GetMapping("/api/v1/todos")
     fun retrieveAllTodos(): List<TodoResponse> {
         return todoService.retrieveAllTodos()

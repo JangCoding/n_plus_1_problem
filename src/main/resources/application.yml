@@ -12,3 +12,11 @@ spring:
     hibernate:
       ddl-auto: create
     show-sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        orm:
+          jdbc:
+            bind: trace  # SQL ? ? ? ?? ? ??? ? ???

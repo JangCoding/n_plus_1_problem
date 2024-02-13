@@ -13,7 +13,9 @@ data class TodoResponse (
             todoId =  todo.id!!,
             contents = todo.contents,
             isComplete = todo.isComplete,
-            comments = emptyList()
+            comments = todo.comments.map{
+                CommentResponse.from(it)
+            }
         )
     }
 }

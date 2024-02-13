@@ -12,8 +12,10 @@ import org.springframework.stereotype.Component
 class DatabaseInitializer(
     private val todoRepository: TodoRepository,
     private val commentRepository: CommentRepository
-) : ApplicationRunner {
+) : ApplicationRunner { // run 할 때 insert 쿼리 날리도록 함
     override fun run(args: ApplicationArguments) {
+
+        // localhost:8080/api/v1/todos 로 확인 가능
         val todo1 = todoRepository.save(Todo(contents = "할일1"))
         commentRepository.save(Comment(todo = todo1, contents = "제대로 하고있나?"))
         commentRepository.save(Comment(todo = todo1, contents = "안하고 있는것 같은데.."))
