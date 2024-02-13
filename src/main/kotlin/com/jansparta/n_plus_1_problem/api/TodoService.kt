@@ -20,6 +20,14 @@ class TodoService(
     }
 
     @Transactional(readOnly = true)
+    fun retrieveAllTodosWithFetch(): List<TodoResponse> {
+        return todoRepository.findAllWithFetchJoin()
+            .map { TodoResponse.from(it) }
+    }
+
+
+
+    @Transactional(readOnly = true)
     fun retrieveAllComments(): List<CommentResponse> {
         return commentRepository.findAll()
             .mapNotNull { CommentResponse.from(it) }

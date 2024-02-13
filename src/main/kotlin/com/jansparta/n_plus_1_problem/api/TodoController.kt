@@ -15,6 +15,13 @@ class TodoController(
         return todoService.retrieveAllTodos()
     }
 
+    // JPQL 사용한 해결 방법
+    @GetMapping("/api/v1/todosWithFetch")
+    fun retrieveAllTodosWithFetch(): List<TodoResponse> {
+        return todoService.retrieveAllTodosWithFetch()
+    }
+
+
     @GetMapping("/api/v1/comments")
     fun retrieveAllComments(): List<CommentResponse> {
         return todoService.retrieveAllComments()
