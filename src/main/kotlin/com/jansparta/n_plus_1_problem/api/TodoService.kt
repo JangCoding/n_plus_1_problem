@@ -25,6 +25,12 @@ class TodoService(
             .map { TodoResponse.from(it) }
     }
 
+    @Transactional(readOnly = true)
+    fun retrieveAllWithEntityGraph(): List<TodoResponse> {
+        return todoRepository.findAllWithEntityGraph()
+            .map { TodoResponse.from(it) }
+    }
+
 
 
     @Transactional(readOnly = true)
